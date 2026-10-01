@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Türkiye'de 2017-2026 arası yapılan FAI Cat 2 yamaç paraşütü mesafe yarışmalarının WPRS puanı, katılım ve süreklilik analizi.">
+<meta property="og:title" content="Türkiye son 10 yıl mesafe branşı yarışmaları genel bakış">
+<meta property="og:description" content="35 yarışma, on sezon. WPRS puanları, katılım, kadın pilot sayısı, dünya sıralaması, PWCA takvimi ve kanat sınıfı dağılımı.">
+<meta property="og:type" content="article">
+<style>
+  html{color-scheme:light dark}
+  body{margin:0}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+<title>Türkiye Mesafe Yarışma Analizi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --page:#eceff0;
+  --surface:#fbfcfb;
+  --surface-2:#f3f6f5;
+  --ink:#11171b;
+  --ink-2:#4b5a62;
+  --muted:#7f8d94;
+  --grid:#e2e7e5;
+  --axis:#c2ccc9;
+  --rule:rgba(17,23,27,.11);
+  --s1:#2a78d6;
+  --s1-soft:rgba(42,120,214,.12);
+  --s2:#eb6834;
+  --s3:#1baf7a;
+  --shadow:0 1px 2px rgba(17,23,27,.05), 0 8px 24px -16px rgba(17,23,27,.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:where(:not([data-theme="light"])){
+    color-scheme: dark;
+    --page:#0a0e11;
+    --surface:#151a1e;
+    --surface-2:#1b2227;
+    --ink:#eef3f4;
+    --ink-2:#a6b4bb;
+    --muted:#7d8b92;
+    --grid:#232b30;
+    --axis:#39444a;
+    --rule:rgba(255,255,255,.11);
+    --s1:#3987e5;
+    --s1-soft:rgba(57,135,229,.16);
+    --s2:#d95926;
+    --s3:#199e70;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --page:#0a0e11;
+  --surface:#151a1e;
+  --surface-2:#1b2227;
+  --ink:#eef3f4;
+  --ink-2:#a6b4bb;
+  --muted:#7d8b92;
+  --grid:#232b30;
+  --axis:#39444a;
+  --rule:rgba(255,255,255,.11);
+  --s1:#3987e5;
+  --s1-soft:rgba(57,135,229,.16);
+  --s2:#d95926;
+  --s3:#199e70;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--page);
+  color:var(--ink);
+  font-family:"Archivo","Helvetica Neue",Arial,sans-serif;
+  font-size:15px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 22px 72px;display:flex;flex-direction:column;gap:30px}
+
+/* ---------- header ---------- */
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 14px;
+}
+h1{
+  font-size:clamp(30px,4.6vw,46px);
+  line-height:1.06;letter-spacing:-.022em;font-weight:700;
+  margin:0;text-wrap:balance;max-width:22ch;
+}
+.dek{
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:17px;line-height:1.6;color:var(--ink-2);
+  margin:16px 0 0;max-width:62ch;
+}
+.dek em{color:var(--ink)}
+
+/* ---------- stat row ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.stat{background:var(--surface);padding:18px 20px 20px;display:flex;flex-direction:column;gap:5px}
+.stat .k{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.stat .v{font-size:34px;font-weight:600;letter-spacing:-.03em;line-height:1.05}
+.stat .v .u{font-size:13px;font-weight:500;color:var(--ink-2);letter-spacing:.02em;margin-left:7px}
+.stat .n{font-size:12.5px;color:var(--ink-2);line-height:1.4}
+.stat.hero .v{font-size:52px}
+
+/* ---------- disclaimer ---------- */
+.disclaimer{
+  border:1px solid var(--rule);
+  border-left:3px solid var(--axis);
+  border-radius:3px;
+  background:var(--surface-2);
+  padding:18px 22px 20px;
+  display:flex;flex-direction:column;gap:9px;
+}
+.disclaimer h2{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;margin:0;
+}
+.disclaimer .dbody{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:16px 30px}
+.disclaimer p{
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:14.5px;line-height:1.62;color:var(--ink-2);margin:0;
+}
+.disclaimer p b{color:var(--ink);font-weight:600}
+
+/* ---------- cards ---------- */
+.card{
+  background:var(--surface);
+  border:1px solid var(--rule);
+  border-radius:3px;
+  box-shadow:var(--shadow);
+  padding:24px 24px 20px;
+}
+.card h2{
+  font-size:19px;font-weight:600;letter-spacing:-.012em;margin:0;
+}
+.card .sub{font-size:13.5px;color:var(--ink-2);margin:6px 0 0;max-width:70ch}
+.card-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 20px;margin-bottom:18px}
+
+.legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.legend span{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-2);white-space:nowrap}
+.swatch{width:11px;height:11px;border-radius:2px;flex:none}
+.ring{width:11px;height:11px;border-radius:50%;border:2px solid var(--s2);flex:none}
+.legend-row{justify-content:flex-end;margin:0 0 10px;row-gap:8px}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:3px;overflow:hidden;background:var(--surface)}
+.seg button{
+  appearance:none;-webkit-appearance:none;border:0;background:transparent;cursor:pointer;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);padding:5px 11px;line-height:1.5;
+}
+.seg button + button{border-left:1px solid var(--rule)}
+.seg button:hover{color:var(--ink)}
+.seg button.on{background:var(--surface-2);color:var(--ink)}
+
+.plot{position:relative}
+.plot svg{display:block;width:100%;height:auto;overflow:visible}
+.tick{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;fill:var(--muted)}
+.xlab{font-family:"Archivo",sans-serif;font-size:13px;font-weight:600;fill:var(--ink-2);letter-spacing:.01em}
+.xsub{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;fill:var(--muted)}
+.vlab{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;fill:var(--ink-2)}
+.gl{stroke:var(--grid);stroke-width:1}
+.base{stroke:var(--axis);stroke-width:1}
+.hit{fill:transparent;cursor:pointer}
+.mark{transition:opacity .12s ease}
+.plot.dim .mark{opacity:.35}
+.plot.dim .mark.on{opacity:1}
+.cross{opacity:0;transition:opacity .1s ease}
+.cross.on{opacity:1}
+
+.tip{
+  position:absolute;pointer-events:none;opacity:0;transform:translate(-50%,-100%);
+  background:var(--surface-2);border:1px solid var(--rule);border-radius:3px;
+  box-shadow:var(--shadow);padding:10px 12px;min-width:180px;max-width:330px;
+  transition:opacity .1s ease;z-index:5;
+}
+.tip .t{font-size:12.5px;font-weight:600;line-height:1.3;margin-bottom:5px}
+.tip .r{display:flex;justify-content:space-between;gap:14px;font-size:11.5px;color:var(--ink-2);font-family:"IBM Plex Mono",ui-monospace,monospace}
+.tip .r b{color:var(--ink);font-weight:500}
+.tip .r span{display:inline-flex;align-items:center}
+.tip .r i.k{width:8px;height:8px;border-radius:2px;display:inline-block;margin-right:7px;flex:none}
+.tip .ls{margin-top:8px;padding-top:8px;border-top:1px solid var(--rule);display:flex;flex-direction:column;gap:4px}
+.tip .li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:11px;line-height:1.35;color:var(--ink-2)}
+.tip .li b{color:var(--ink);font-weight:500;font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tip .li .d{width:6px;height:6px;border-radius:50%;background:var(--s2);display:inline-block;margin-right:5px;flex:none;vertical-align:1px}
+.tip .ls .cap{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1px}
+
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px 30px}
+.duo > div{min-width:0}
+.duo h3{font-size:14px;font-weight:600;letter-spacing:-.005em;margin:0 0 4px;color:var(--ink)}
+.duo p.note{font-size:12.5px;color:var(--ink-2);margin:0 0 12px;line-height:1.45}
+.mark-rule{stroke:var(--axis);stroke-width:1;stroke-dasharray:3 3}
+.mark-note{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:9.5px;fill:var(--muted);letter-spacing:.06em}
+.era-lab{font-family:"IBM Plex Mono",ui-monospace,monospace;fill:var(--muted);letter-spacing:.07em}
+
+/* ---------- era key ---------- */
+.eras{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.eras > div{background:var(--surface);padding:13px 15px 15px;display:flex;flex-direction:column;gap:5px}
+.eras .s{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.1em;color:var(--ink);display:flex;align-items:center;gap:9px}
+.eras .s i{width:18px;height:3px;background:var(--axis);flex:none;border-radius:1px}
+.eras .n{font-size:12.5px;color:var(--ink);line-height:1.35}
+.eras .p{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;color:var(--muted);letter-spacing:.05em}
+
+/* ---------- pwca timeline ---------- */
+.pwca{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.pwca div{background:var(--surface);padding:12px 10px 14px;display:flex;flex-direction:column;gap:7px;min-height:118px}
+.pwca .y{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.pwca .ev{font-size:11.5px;line-height:1.3;color:var(--ink);display:flex;gap:6px;align-items:flex-start}
+.pwca .ev i{width:7px;height:7px;border-radius:2px;flex:none;margin-top:4px}
+.pwca .none{font-size:11.5px;color:var(--muted)}
+
+/* ---------- table ---------- */
+.scroller{overflow-x:auto;margin:0 -24px;padding:0 24px}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:13px}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:baseline}
+th{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;font-weight:500;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--axis);padding-top:0;white-space:nowrap;
+}
+td.num,th.num{text-align:right;font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;padding:9px 0 9px 20px;white-space:nowrap}
+th.num{padding-top:0}
+td.yr{font-family:"IBM Plex Mono",ui-monospace,monospace;color:var(--muted);white-space:nowrap}
+tbody tr:hover td{background:var(--surface-2)}
+.pts{font-weight:500;color:var(--ink)}
+.tag{
+  display:inline-block;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:9.5px;
+  letter-spacing:.08em;padding:1px 5px;border-radius:2px;margin-left:7px;
+  border:1px solid var(--s2);color:var(--ink-2);vertical-align:1px;
+}
+.win{color:var(--ink-2)}
+.win b{color:var(--ink);font-weight:500}
+.me td{background:var(--s1-soft)}
+.me td:first-child{box-shadow:inset 2px 0 0 var(--s1);padding-left:10px}
+
+/* ---------- notes ---------- */
+.notes{font-family:"Source Serif 4",Georgia,serif;font-size:15px;line-height:1.65;color:var(--ink-2)}
+.notes h3{
+  font-family:"Archivo",sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink);margin:0 0 10px;
+}
+.notes p{margin:0 0 12px;max-width:70ch}
+.notes p:last-child{margin-bottom:0}
+.notes b{color:var(--ink);font-weight:600}
+.notes ul{margin:0 0 12px;padding-left:20px;max-width:70ch}
+.notes li{margin-bottom:4px}
+.notes a{color:var(--s1);text-decoration:none;border-bottom:1px solid var(--s1-soft)}
+.notes a:hover,.notes a:focus-visible{border-bottom-color:var(--s1)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:26px 30px}
+.foot{font-size:12px;color:var(--muted);font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:.02em;line-height:1.7}
+.foot a{color:var(--muted)}
+:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:620px){
+  .legend-row{justify-content:flex-start}
+  .wrap{padding:28px 14px 56px;gap:22px}
+  .card{padding:18px 16px 16px}
+  .scroller{margin:0 -16px;padding:0 16px}
+  .stat.hero .v{font-size:42px}
+}
+</style>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">FAI CIVL · WPRS · Paragliding XC · 2017–2026</p>
+    <h1>Türkiye son 10 yıl mesafe branşı yarışmaları genel bakış</h1>
+    <p class="dek">Türkiye'de düzenlenen, FAI Cat&nbsp;2 onaylı ve WPRS'e işlenen her mesafe yarışması: <em>birincisinin aldığı puan</em> ve <em>yarışmanın katılımı</em>. Puanlar, her yarışmanın bitişini izleyen sıralama dönemindeki — henüz zaman aşındırması uygulanmamış — ham değerler. 35 yarışma, on sezon — puan, katılım, süreklilik, sıralama ve ekipman.</p>
+  </header>
+
+  <section class="stats">
+    <div class="stat hero">
+      <span class="k">Son 10 sezon ortalaması</span>
+      <span class="v" id="heroVal">40,9<span class="u">WPRS</span></span>
+      <span class="n">2017–2026 · 35 yarışma birincisi</span>
+    </div>
+    <div class="stat">
+      <span class="k">En yüksek</span>
+      <span class="v">89,3<span class="u">WPRS</span></span>
+      <span class="n">PWC Çameli 2024 — Martin Jovanoski</span>
+    </div>
+    <div class="stat">
+      <span class="k">En düşük</span>
+      <span class="v">7,6<span class="u">WPRS</span></span>
+      <span class="n">XC Open Karapınar 2026 — İsa Kaya</span>
+    </div>
+    <div class="stat">
+      <span class="k">Sezonluk yarışma</span>
+      <span class="v">1 – 6</span>
+      <span class="n">Sezon başına puanlı yarışma: 2020'de 1, 2023'te 6</span>
+    </div>
+  </section>
+
+  <section class="disclaimer">
+    <h2>Sorumluluk reddi</h2>
+    <div class="dbody">
+    <p>Bu sayfadaki derleme, <b>Adem Berk Aksoy</b> tarafından <b>yapay zekâ destekli araçlar kullanılarak</b> hazırlanmıştır. Veriler FAI CIVL'in kamuya açık kayıtlarından otomatik olarak çekilmiş ve işlenmiştir; kaynaktaki eksik veya hatalı kayıtlar, isim ve yarışma eşleştirmelerinden doğan sapmalar ile derleme sürecinde oluşabilecek hatalar nedeniyle bazı değerlerde <b>tutarsızlık ya da eksiklik bulunabilir</b>.</p>
+    <p>İçerik yalnızca bilgilendirme amaçlıdır; resmî bir kaynak, federasyon yayını veya referans belge niteliği taşımaz. Bağlayıcı bilgi için FAI CIVL ve Türkiye Hava Sporları Federasyonu'nun resmî yayınları esas alınmalıdır.</p>
+    <p>Burada yer alan bilgilerin kullanılmasından doğabilecek doğrudan veya dolaylı hiçbir zarardan <b>sorumluluk kabul edilmez</b>.</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>Grafiklerdeki dönem şeridi</h2>
+        <p class="sub">Aşağıdaki bütün grafiklerin altında ince bir şerit var: o sezonun hangi federasyon yönetimine denk geldiğini gösterir. Şerit <b>bağlam içindir, sebep iddiası değildir</b> — bir dönemdeki değişimin arkasında yönetim kadar salgın, hava koşulları veya PWCA takvimi de olabilir.</p>
+      </div>
+    </div>
+    <div class="eras" id="eraKey"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>Birincilerin WPRS puan ortalaması, yıllara göre</h2>
+        <p class="sub">Her sütun, o sezonda Türkiye'de yapılan Cat&nbsp;2 mesafe yarışmalarının birincilerinin aldığı puanların aritmetik ortalaması.</p>
+      </div>
+      <div class="seg" data-seg="plotA" role="group" aria-label="Görünüm">
+        <button type="button" class="on" data-view="bar" aria-pressed="true">Sütun</button>
+        <button type="button" data-view="line" aria-pressed="false">Çizgi</button>
+      </div>
+    </div>
+    <div class="legend legend-row">
+      <span><i class="swatch" style="background:var(--s1)"></i>Tüm Cat 2 yarışmaları</span>
+      <span><i class="swatch" style="background:var(--s2)"></i>PWC etapları hariç</span>
+    </div>
+    <div class="plot" id="plotA"><div class="tip" id="tipA"></div></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>Ortalamanın arkasındaki yarışmalar</h2>
+        <p class="sub">Her nokta bir yarışma birincisi. Yatay çizgi o sezonun ortalaması. Ortalamayı yukarı çeken şey neredeyse her yıl tek bir Dünya Kupası etabı.</p>
+      </div>
+    </div>
+    <div class="legend legend-row">
+      <span><i class="swatch" style="background:var(--s1);border-radius:50%"></i>Cat 2 yarışma</span>
+      <span><i class="ring"></i>PWC etabı</span>
+    </div>
+    <div class="plot" id="plotB"><div class="tip" id="tipB"></div></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>Yarışma başına ortalama pilot sayısı</h2>
+        <p class="sub">Katılım, WPRS puanını besleyen ana girdi: pilot sayısı (P<sub>n</sub>) ve katılan pilotların sıralama ağırlığı (P<sub>q</sub>) birlikte yarışmanın değerini belirliyor. Yeşil sütun, aynı yarışmalardaki kadın pilot sayısının ortalaması.</p>
+      </div>
+      <div class="seg" data-seg="plotC" role="group" aria-label="Görünüm">
+        <button type="button" class="on" data-view="bar" aria-pressed="true">Sütun</button>
+        <button type="button" data-view="line" aria-pressed="false">Çizgi</button>
+      </div>
+    </div>
+    <div class="legend legend-row">
+      <span><i class="swatch" style="background:var(--s1)"></i>Tüm Cat 2 yarışmaları</span>
+      <span><i class="swatch" style="background:var(--s2)"></i>PWC etapları hariç</span>
+      <span><i class="swatch" style="background:var(--s3)"></i>Kadın pilot</span>
+    </div>
+    <div class="plot" id="plotC"><div class="tip" id="tipC"></div></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>Sporun nabzı: kim geliyor, kim kalıyor</h2>
+        <p class="sub">Her sezonda yarışan benzersiz pilot sayısı ve o sezonun Türk pilotlarının bir sonraki sezon tekrar yarışma oranı. Aralık 2024'teki federasyon başkanlığı değişimi kesikli çizgiyle işaretli.</p>
+      </div>
+    </div>
+    <div class="duo">
+      <div>
+        <h3>Sezonda yarışan pilot</h3>
+        <p class="note">Aynı pilot sezon içinde kaç yarışmaya girerse girsin bir kez sayılır. Sütunlar yarışma sayısından etkilenir — 2020'de tek, 2026'da üç yarışma yapıldı.</p>
+        <div class="legend" style="margin:0 0 10px"><span><i class="swatch" style="background:var(--s1)"></i>Türk pilot</span><span><i class="swatch" style="background:var(--s2)"></i>Yabancı pilot</span></div>
+        <div class="plot" id="mA"><div class="tip"></div></div>
+      </div>
+      <div>
+        <h3>Bir sonraki sezona kalma oranı</h3>
+        <p class="note">O sezonun Türk pilotlarının yüzde kaçı ertesi sezon da en az bir yarışmada göründü. Yarışma sayısından bağımsız olduğu için sporun gerçek devamlılığını bu ölçer.</p>
+        <div class="plot" id="mB"><div class="tip"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>Türkiye dünya sıralamasında nerede</h2>
+        <p class="sub">Solda CIVL uluslar sıralamasında Türkiye'nin sırası, sağda o yılın sonunda dünya sıralamasındaki en iyi Türk pilotun sırası. Her iki eksende de <b>yukarısı iyidir</b>.</p>
+      </div>
+    </div>
+    <div class="duo">
+      <div>
+        <h3>Uluslar sıralaması — Türkiye</h3>
+        <p class="note">PG XC uluslar sıralaması, yıl sonu (2026 için Ekim). Pencerenin hemen öncesinde, 2016 sonunda Türkiye 16. sıradaydı.</p>
+        <div class="plot" id="mC"><div class="tip"></div></div>
+      </div>
+      <div>
+        <h3>En iyi Türk pilotun dünya sırası</h3>
+        <p class="note">O yılın sonunda WPRS PG XC sıralamasında en üstteki Türk pilot. 2017'den beri hiçbir Türk pilot ilk 100'e giremedi.</p>
+        <div class="plot" id="mD"><div class="tip"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>PWCA takvimi: Türkiye hangi kategorilerde yer aldı</h2>
+        <p class="sub">Paragliding World Cup Association'ın Türkiye'de yapılan etapları. <b>PWC etabı</b> resmî Dünya Kupası ayağı; <b>Pre-PWC</b> ise etap adaylığı için düzenlenen hazırlık yarışması.</p>
+      </div>
+      <div class="legend"><span><i class="swatch" style="background:var(--s1)"></i>PWC etabı</span><span><i class="swatch" style="background:var(--s2)"></i>Pre-PWC</span></div>
+    </div>
+    <div class="pwca" id="pwca"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>Uluslararasılık</h2>
+        <p class="sub">Türkiye'deki yarışmalara kaç farklı ülkeden pilot geldi ve katılımın ne kadarı yabancıydı. Her iki grafikte de ikinci seri, PWC etaplarını dışarıda bırakıyor: bir Dünya Kupası ayağı tek başına 25–30 ülke getirdiği için, çeşitliliğin gerçekte ne kadarı Türkiye'nin kendi yarışmalarından geliyor onu gösteriyor.</p>
+      </div>
+    </div>
+    <div class="duo">
+      <div>
+        <h3>Kaç ülkeden pilot geldi</h3>
+        <p class="note">Turuncu sütun PWC etaplarını dışarıda bırakıyor — yani Türkiye'nin <b>kendi</b> yarışmalarının çeşitliliği.</p>
+        <div class="legend" style="margin:0 0 10px"><span><i class="swatch" style="background:var(--s1)"></i>Tüm yarışmalar</span><span><i class="swatch" style="background:var(--s2)"></i>PWC etapları hariç</span></div>
+        <div class="plot" id="mE"><div class="tip"></div></div>
+      </div>
+      <div>
+        <h3>Yabancı pilot payı</h3>
+        <p class="note">Sezonda yarışan benzersiz pilotların yüzde kaçı Türkiye dışından. Aynı ayrım burada da geçerli.</p>
+        <div class="legend" style="margin:0 0 10px"><span><i class="swatch" style="background:var(--s1)"></i>Tüm yarışmalar</span><span><i class="swatch" style="background:var(--s2)"></i>PWC etapları hariç</span></div>
+        <div class="plot" id="mF"><div class="tip"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>Yarışmalar ne kadar uçuldu</h2>
+        <p class="sub">T<sub>a</sub> görev geçerlilik katsayısı, yarışmanın ilan edilen süresine göre ne kadarının geçerli göreve dönüştüğünü gösterir. Düşük T<sub>a</sub> ve az görev, puanı doğrudan aşağı çeker.</p>
+      </div>
+    </div>
+    <div class="duo">
+      <div>
+        <h3>Ortalama görev geçerliliği (T<sub>a</sub>)</h3>
+        <p class="note">Yüzde olarak. %100, yarışmanın planlanan tüm uçuş günlerini kullandığı anlamına gelir.</p>
+        <div class="plot" id="mG"><div class="tip"></div></div>
+      </div>
+      <div>
+        <h3>Yarışma başına ortalama görev</h3>
+        <p class="note">Kaç geçerli görev uçuldu. 2026'daki iki yarışma tek görevde kapandı.</p>
+        <div class="plot" id="mH"><div class="tip"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>Kanat sınıfı dağılımı</h2>
+        <p class="sub">Yarışan pilotların kullandığı kanadın sertifikasyon sınıfı. <b>CCC</b> yarışma sınıfı (Enzo 3, Boomerang 12, Icepeak X-One, 777 King, Meru); <b>EN-D</b> yüksek performanslı seri kanatlar (Zeno 2, Leopard, Diva 2, Mantra, XC Racer); geri kalan EN-C ve altı.</p>
+      </div>
+      <div class="legend"><span><i class="swatch" style="background:var(--s1)"></i>CCC</span><span><i class="swatch" style="background:var(--s2)"></i>EN-D</span><span><i class="swatch" style="background:var(--axis)"></i>EN-C ve altı</span></div>
+    </div>
+    <div class="plot" id="plotS"><div class="tip" id="tipS"></div></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>Yarışma bazında döküm</h2>
+        <p class="sub">WPRS = yarışma bitiminden sonraki ilk sıralama döneminde birinciye yazılan puan. T<sub>a</sub> görev geçerlilik katsayısı, pilot sayısı ve görev sayısı puanı doğrudan belirler.</p>
+      </div>
+    </div>
+    <div class="scroller">
+      <table id="tbl">
+        <thead>
+          <tr>
+            <th>Yıl</th><th>Tarih</th><th>Yarışma</th><th>Birinci</th>
+            <th class="num">WPRS</th><th class="num">T<sub>a</sub></th><th class="num">Pilot</th><th class="num">Kadın</th><th class="num">Görev</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card notes">
+    <div class="grid2">
+      <div>
+        <h3>Puan nereden geliyor</h3>
+        <p>WPRS puanı yarışmanın <b>kalitesinden</b> doğuyor: katılımcıların dünya sıralamasındaki ağırlığı (P<sub>q</sub>), pilot sayısı (P<sub>n</sub>), geçerli görev sayısı ve görev geçerlilik katsayısı (T<sub>a</sub>). Birincilik tek başına sabit bir puan getirmiyor — 2026 Karapınar'ı kazanmak 7,6, aynı yıl Muş'u kazanmak 38,3 puan etti.</p>
+        <p>CIVL puanı zamanla aşındırıyor: ilk 12 ay tam, sonra hızla eriyip üçüncü yılın sonunda sıfırlanıyor. Bu yüzden tablodaki değerler <b>bugünkü</b> sıralamadan değil, her yarışmanın bitişini izleyen ilk aylık sıralama anlık görüntüsünden alındı.</p>
+      </div>
+      <div>
+        <h3>Neler sayılmadı</h3>
+        <p>WPRS'e hiç işlenmeyen, Cat&nbsp;2 onayı olmayan ya da eğitim statüsündeki 9 yarışma kapsam dışı — puan üretmedikleri için ortalamayı bozarlardı:</p>
+        <ul>
+          <li>Tokat‑Erbaa Training XC Open ve Erbaa Tokat XC Open (2022)</li>
+          <li>Hisarcık XC Open (2023)</li>
+          <li>Mardin Şehit Kaymakam M. F. Safitürk XC ve iki adet XC Training Competition (2024)</li>
+          <li>Gaziantep, Akşehir ve Bursa mesafe eğitim yarışmaları (2025)</li>
+          <li>2017 Mercimektepe Cross Country (geçerli görev uçulamadı, T<sub>a</sub>=0) ve Çameli Spring 2019</li>
+        </ul>
+        <p>Hedef (accuracy) yarışmaları da kapsam dışı — bu sayfa yalnızca <b>PG&nbsp;XC</b> disiplinini kapsıyor.</p>
+        <p>2020 öncesi yarışmalar civlcomps kayıtlarında <i>Cat 1</i> etiketiyle görünüyor; bu, sistem Cat 2 onay akışına geçmeden önceki toplu aktarımdan kalma bir etiket. Hepsi içerik olarak yerel Cat 2 mesafe yarışması.</p>
+        <p><b>Kadın pilot sayısı</b> her yarışmanın WPRS'e giren pilot listesi, CIVL'in kadın sıralamasıyla kesiştirilerek bulundu. Sonuç sayfası yayımlanmış 16 yarışmanın 15'inde resmî kadın klasmanıyla birebir tuttu.</p>
+      </div>
+      <div>
+        <h3>Diğer bölümlerin yöntemi</h3>
+        <p><b>Pilot sayımı.</b> Bir sezonda en az bir puanlı yarışmada yer alan benzersiz CIVL kimlikleri. Mutlak sayılar o yıl kaç yarışma yapıldığına bağlı — 2020'de tek, 2026'da üç yarışma vardı — bu yüzden <b>kalma oranı</b> daha güvenilir bir ölçü: yarışma sayısından bağımsız.</p>
+        <p><b>Sıralamalar.</b> CIVL PG XC aylık sıralamalarının yıl sonu (Aralık) anlık görüntüleri; 2026 için 1 Ekim — Bulgaristan Sopot PWC etabı bu dönemde işlendi. Pilot sırası, o anki dünya genel sıralamasındaki yeri.</p>
+        <p><b>Kanat sınıfı.</b> Katılımcı listelerindeki kanat modeli alanından çıkarıldı; CCC ve EN-D model listeleri elle eşleştirildi. 2014'te CCC sınıfı kurulmadan önceki açık sınıf yarışma kanatları (Enzo 2, Icepeak 7, Boomerang 9) CCC sayıldı. Bursa Cup 2021'de kanat kaydı yok.</p>
+        <p><b>Federasyon.</b> 16 Aralık 2024 genel kurulunda başkanlık değişti (Ahmet Saim Yılmaz → Emre Şahin). 2025 ve 2026, yeni yönetimin ilk iki sezonu.</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="foot">
+    Kaynak: FAI CIVL sıralama sistemi — <a href="https://civlcomps.org/ranking/paragliding-xc/competitions">civlcomps.org</a>, PG XC yarışma listesi ve aylık sıralama anlık görüntüleri (Haz 2017 – Eki 2026).<br>
+    2026 sezonu kapandı; yılın son puanlı yarışması 1 Ağustos 2026'da bitti. Veriler 1 Ekim 2026 sıralama dönemi itibarıyla.
+  </p>
+</div>
+
+<script>
+const DATA = [
+ {y:2017,d:"25 Tem – 30 Tem",n:"8th Ali Dağı Cup XC Open",w:"Mohammad Ali Hossaini Semnani",c:"IRI",p:35.2,ta:1.000,pl:99,tk:4,pwc:false,s:"Ali Dağı XC Open",fw:10},
+ {y:2017,d:"14 Ağu – 19 Ağu",n:"5th Çameli XC Open",w:"Muzaffer Dündar",c:"TUR",p:30.3,ta:1.000,pl:50,tk:4,pwc:false,s:"Çameli XC Open",fw:4},
+ {y:2018,d:"1 Eyl – 7 Eyl",n:"Turkish Pre World Cup Çameli 2018",w:"Emil Červeňan",c:"SVK",p:61.0,ta:1.000,pl:119,tk:6,pwc:false,s:"Çameli Pre-PWC",fw:11},
+ {y:2018,d:"8 Eyl – 15 Eyl",n:"Paragliding World Cup Turkey 2018",w:"Russell Achterberg",c:"RSA",p:88.6,ta:1.000,pl:112,tk:3,pwc:true,s:"PWC Türkiye",fw:10},
+ {y:2019,d:"8 Tem – 14 Tem",n:"10th Ali Dağı XC Open",w:"Basat Okay",c:"TUR",p:24.4,ta:1.000,pl:69,tk:5,pwc:false,s:"Ali Dağı XC Open",fw:11},
+ {y:2019,d:"27 Tem – 2 Ağu",n:"Türkiye XC Şampiyonası & 7th Çameli XC Open",w:"Durali Karaca",c:"TUR",p:42.3,ta:1.000,pl:104,tk:5,pwc:false,s:"Türkiye Şamp. / Çameli",fw:9},
+ {y:2019,d:"3 Ağu – 10 Ağu",n:"2019 Russian Open — Hasan Dağı, Aksaray",w:"Kayvan Arianpour",c:"IRI",p:31.0,ta:1.000,pl:44,tk:4,pwc:false,s:"Russian Open, Aksaray",fw:5},
+ {y:2019,d:"25 Ağu – 31 Ağu",n:"Aksaray Pre-PWC 2019 — Hasan Dağı",w:"Hadi Heidari Dastjerdi",c:"IRI",p:46.7,ta:1.000,pl:72,tk:5,pwc:false,s:"Aksaray Pre-PWC",fw:6},
+ {y:2020,d:"24 Ağu – 29 Ağu",n:"Alidağı XC Open 2020",w:"Serdar Tur",c:"TUR",p:33.2,ta:1.000,pl:67,tk:5,pwc:false,s:"Alidağı XC Open",fw:7},
+ {y:2021,d:"26 Haz – 27 Haz",n:"Bursa Cup Paragliding Cross Country Competition",w:"Oğuzhan Erdemir",c:"TUR",p:13.2,ta:0.800,pl:29,tk:2,pwc:false,s:"Bursa Cup",fw:3},
+ {y:2021,d:"6 Tem – 11 Tem",n:"Mercimektepe Paragliding XC Open",w:"Basat Okay",c:"TUR",p:35.4,ta:1.000,pl:76,tk:4,pwc:false,s:"Mercimektepe XC Open",fw:7},
+ {y:2021,d:"7 Ağu – 13 Ağu",n:"Turkish Cup Championship Aksaray",w:"Serdar Tur",c:"TUR",p:42.3,ta:1.000,pl:78,tk:3,pwc:false,s:"Turkish Cup, Aksaray",fw:12},
+ {y:2021,d:"25 Ağu – 30 Ağu",n:"Alidağı XC Open 2021",w:"Hadi Heidari Dastjerdi",c:"IRI",p:40.5,ta:1.000,pl:71,tk:4,pwc:false,s:"Alidağı XC Open",fw:12},
+ {y:2021,d:"4 Eyl – 11 Eyl",n:"Paragliding World Cup Turkey 2021 — Aksaray",w:"Martin Jovanoski",c:"MKD",p:88.4,ta:1.000,pl:115,tk:5,pwc:true,s:"PWC Aksaray",fw:5},
+ {y:2022,d:"29 May – 3 Haz",n:"Çameli Spring Cup 2022",w:"Hüseyin Tanrıverdi",c:"TUR",p:28.1,ta:0.999,pl:33,tk:4,pwc:false,s:"Çameli Spring Cup",fw:3},
+ {y:2022,d:"2 Tem – 7 Tem",n:"Bayramören XC Open 2022",w:"Dora Göksal",c:"TUR",p:27.7,ta:1.000,pl:41,tk:5,pwc:false,s:"Bayramören XC Open",fw:4},
+ {y:2022,d:"26 Tem – 31 Tem",n:"Mercimek Tepe XC Open 2022 — Turkish National Cup",w:"Serdar Tur",c:"TUR",p:43.0,ta:1.000,pl:71,tk:5,pwc:false,s:"Mercimek Tepe XC Open",fw:5},
+ {y:2022,d:"9 Ağu – 14 Ağu",n:"Ali Dağı XC Open 2022",w:"Ferdi Toy",c:"TUR",p:44.4,ta:1.000,pl:71,tk:5,pwc:false,s:"Ali Dağı XC Open",fw:9},
+ {y:2022,d:"28 Ağu – 3 Eyl",n:"Turkish Pre World Cup & 8th Çameli XC Open",w:"Hadi Heidari Dastjerdi",c:"IRI",p:48.8,ta:1.000,pl:67,tk:6,pwc:false,s:"Çameli Pre-PWC",fw:2},
+ {y:2023,d:"16 May – 21 May",n:"Çameli Spring Cup",w:"Dora Göksal",c:"TUR",p:34.4,ta:1.000,pl:45,tk:3,pwc:false,s:"Çameli Spring Cup",fw:5},
+ {y:2023,d:"1 Haz – 4 Haz",n:"Ladik XC Open Serial Class",w:"Erfan Attaee",c:"IRI",p:14.1,ta:0.800,pl:18,tk:2,pwc:false,s:"Ladik XC Open (Serial)",fw:1},
+ {y:2023,d:"4 Tem – 9 Tem",n:"Bayramören XC Open 2023",w:"Bernd Hohlmeier",c:"GER",p:12.1,ta:0.800,pl:19,tk:2,pwc:false,s:"Bayramören XC Open",fw:0},
+ {y:2023,d:"21 Tem – 27 Tem",n:"Çameli Pre-PWC 2023",w:"Jiuhua Qu",c:"CHN",p:25.5,ta:0.500,pl:72,tk:1,pwc:false,s:"Çameli Pre-PWC",fw:9},
+ {y:2023,d:"29 Tem – 5 Ağu",n:"Paragliding World Cup Turkey 2023 — Aksaray",w:"Stan Radzikowski",c:"GBR",p:89.1,ta:1.000,pl:120,tk:7,pwc:true,s:"PWC Aksaray",fw:9},
+ {y:2023,d:"6 Ağu – 12 Ağu",n:"Paragliding Turkish Championship 2023 — Kayseri",w:"Hüseyin Tanrıverdi",c:"TUR",p:42.6,ta:1.000,pl:78,tk:5,pwc:false,s:"Türkiye Şampiyonası, Kayseri",fw:5},
+ {y:2024,d:"18 Haz – 23 Haz",n:"11. Akşehir XC Open",w:"Ferdi Toy",c:"TUR",p:33.7,ta:1.000,pl:74,tk:5,pwc:false,s:"Akşehir XC Open",fw:9},
+ {y:2024,d:"15 Tem – 21 Tem",n:"Recep Yazıcıoğlu XC Open Tokat",w:"Adem Berk Aksoy",c:"TUR",p:33.1,ta:1.000,pl:61,tk:6,pwc:false,s:"Tokat XC Open",fw:10},
+ {y:2024,d:"3 Ağu – 10 Ağu",n:"Paragliding World Cup — Çameli 2024",w:"Martin Jovanoski",c:"MKD",p:89.3,ta:1.000,pl:111,tk:7,pwc:true,s:"PWC Çameli",fw:4},
+ {y:2024,d:"3 Eyl – 8 Eyl",n:"Orkut Baysal XC Türkiye ve Gençler Şampiyonası — Erzincan",w:"Ferdi Toy",c:"TUR",p:40.3,ta:1.000,pl:94,tk:3,pwc:false,s:"Türkiye Şampiyonası, Erzincan",fw:11},
+ {y:2025,d:"8 Ağu – 14 Ağu",n:"Alidağı Pre-PWC & XC Türkiye ve Gençler Şampiyonası",w:"Hadi Heidari Dastjerdi",c:"IRI",p:42.9,ta:1.000,pl:101,tk:6,pwc:false,s:"Alidağı Pre-PWC / Türkiye Şamp.",fw:11},
+ {y:2025,d:"16 Ağu – 23 Ağu",n:"Paragliding World Cup 2025 Turkey — Aksaray",w:"Sergio Sampaio",c:"BRA",p:78.0,ta:1.000,pl:91,tk:6,pwc:true,s:"PWC Aksaray",fw:1},
+ {y:2025,d:"15 Eyl – 21 Eyl",n:"Karapınar Pre-PWC",w:"Sinan Çalışkan",c:"TUR",p:32.2,ta:0.800,pl:63,tk:2,pwc:false,s:"Karapınar Pre-PWC",fw:6},
+ {y:2026,d:"22 Haz – 27 Haz",n:"Paragliding XC Open Muş 2026",w:"Umut Aslan",c:"TUR",p:38.3,ta:1.000,pl:72,tk:3,pwc:false,s:"Muş XC Open",fw:6},
+ {y:2026,d:"13 Tem – 18 Tem",n:"Yeşilay XC Türkiye ve Gençler Şampiyonası — Simav 2026",w:"Serdar Saçtı",c:"TUR",p:15.4,ta:0.500,pl:38,tk:1,pwc:false,s:"Türkiye Şampiyonası, Simav",fw:3},
+ {y:2026,d:"27 Tem – 1 Ağu",n:"Paragliding XC Open Karapınar 2026",w:"İsa Kaya",c:"TUR",p:7.6,ta:0.500,pl:18,tk:1,pwc:false,s:"Karapınar XC Open",fw:1}
+];
+
+const YEARS = [2017,2018,2019,2020,2021,2022,2023,2024,2025,2026];
+const nf1 = v => v.toFixed(1).replace('.', ',');
+const nf3 = v => v.toFixed(3).replace('.', ',');
+const mean = a => a.reduce((s,x)=>s+x,0)/a.length;
+const esc = s => s.replace(/&/g,'&amp;').replace(/'/g,'&#39;');
+
+const byYear = YEARS.map(y => {
+  const all = DATA.filter(d => d.y === y);
+  return { y, all, nop: all.filter(d => !d.pwc) };
+});
+
+/* ---------------- tooltip plumbing ---------------- */
+function bindTip(plotEl, tipEl){
+  const show = (x, y, html, key, nodim) => {
+    tipEl.innerHTML = html;
+    tipEl.style.opacity = 1;
+    plotEl.classList.toggle('dim', !nodim);
+    plotEl.querySelectorAll('.mark').forEach(m => m.classList.toggle('on', m.dataset.k === key));
+    const r = plotEl.getBoundingClientRect();
+    const w = tipEl.offsetWidth, h = tipEl.offsetHeight;
+    // always bottom-anchored above the mark, clamped so it never leaves the plot
+    const top = Math.max(h + 4, Math.min(r.height - 4, y - r.top - 12));
+    tipEl.style.left = Math.max(w/2 + 4, Math.min(r.width - w/2 - 4, x - r.left)) + 'px';
+    tipEl.style.top  = top + 'px';
+  };
+  const hide = () => {
+    tipEl.style.opacity = 0;
+    plotEl.classList.remove('dim');
+    plotEl.querySelectorAll('.mark').forEach(m => m.classList.remove('on'));
+  };
+  plotEl.addEventListener('pointerleave', hide);
+  plotEl.addEventListener('blur', hide, true);
+  return { show, hide };
+}
+
+function attach(plotEl, tip, sel){
+  plotEl.querySelectorAll(sel).forEach(el => {
+    const fire = () => {
+      const b = el.getBoundingClientRect();
+      let y = b.top;
+      if (el.dataset.vy !== undefined) {
+        const svg = el.ownerSVGElement, sr = svg.getBoundingClientRect(), vb = svg.viewBox.baseVal;
+        y = sr.top + ((+el.dataset.vy - vb.y) / vb.height) * sr.height;
+      }
+      tip.show(b.left + b.width/2, y, el.dataset.html, el.dataset.k, el.dataset.nodim === '1');
+    };
+    el.addEventListener('pointerenter', fire);
+    el.addEventListener('focus', fire);
+    el.setAttribute('tabindex','0');
+  });
+}
+
+/* ---------------- federation eras ---------------- */
+const ERAS = [
+  {from:2017, to:2017, short:'GOSB',   name:'Bağımsızlık öncesi',   period:'→ Kas 2017'},
+  {from:2018, to:2021, short:'A.Ç.Ö.', name:'Ahmet Çağrı Özer',     period:'Kas 2017 – Kas 2021'},
+  {from:2022, to:2022, short:'M.A.K.', name:'Mehmet Akif Kalaycı',  period:'Kas 2021 – May 2023'},
+  {from:2023, to:2024, short:'A.S.Y.', name:'Ahmet Saim Yılmaz',    period:'May 2023 – Ara 2024'},
+  {from:2025, to:2026, short:'E.Ş.',   name:'Emre Şahin',           period:'Ara 2024 –'}
+];
+// thin segmented rule under the x-axis: which federation term each season fell in
+function eraStrip(cxf, band, yTop, fs){
+  let s = '';
+  ERAS.forEach((e, k) => {
+    const i0 = YEARS.indexOf(e.from), i1 = YEARS.indexOf(e.to);
+    if (i0 < 0 || i1 < 0) return;
+    const x0 = cxf(i0) - band/2 + 2, x1 = cxf(i1) + band/2 - 2;
+    s += `<rect x="${x0}" y="${yTop}" width="${Math.max(2, x1-x0)}" height="3" rx="1" fill="var(--axis)" opacity="${k % 2 ? 0.5 : 1}"/>`;
+    s += `<text class="era-lab" font-size="${fs}" x="${(x0+x1)/2}" y="${yTop + fs + 5}" text-anchor="middle">${e.short}</text>`;
+  });
+  return s;
+}
+
+/* ---------------- shared plot geometry ---------------- */
+const G = { W:1120, H:422, L:52, R:18, T:26, B:86 };
+G.pw = G.W - G.L - G.R;
+G.ph = G.H - G.T - G.B;
+G.band = G.pw / YEARS.length;
+const cxOf = i => G.L + G.band*i + G.band/2;
+const scaleY = yMax => v => G.T + G.ph - (v / yMax) * G.ph;
+
+function chrome(o, yS){
+  let s = '';
+  o.ticks.forEach(t => {
+    s += `<line class="gl" x1="${G.L}" x2="${G.L+G.pw}" y1="${yS(t)}" y2="${yS(t)}"/>`;
+    s += `<text class="tick" x="${G.L-10}" y="${yS(t)+3.5}" text-anchor="end">${t}</text>`;
+  });
+  s += `<line class="base" x1="${G.L}" x2="${G.L+G.pw}" y1="${yS(0)}" y2="${yS(0)}"/>`;
+  s += `<text class="tick" x="${G.L-10}" y="${G.T-10}" text-anchor="end">${o.unit}</text>`;
+  return s;
+}
+const xAxis = (g, cx, yS) =>
+  `<text class="xlab" x="${cx}" y="${yS(0)+24}" text-anchor="middle">${g.y}</text>`
+  + `<text class="xsub" x="${cx}" y="${yS(0)+40}" text-anchor="middle">${g.all.length} yarışma</text>`;
+
+const listRows = (o, se, g) =>
+  [...se.pick(g)].sort((a,b) => se.get(b) - se.get(a)).map(d =>
+    `<div class="li"><span>${d.pwc ? '<i class="d"></i>' : ''}${d.s}</span><b>${o.fmtRow(se.get(d))}</b></div>`).join('');
+
+/* ---------------- view 1: grouped columns ---------------- */
+function barChart(o){
+  const yS = scaleY(o.yMax);
+  const n = o.series.length, GAP = 2, FS = 11;
+  const BW = Math.max(12, Math.min(24, Math.floor((G.band*0.78 - (n-1)*GAP) / n)));
+  const groupW = n*BW + (n-1)*GAP;
+  let s = `<svg viewBox="0 0 ${G.W} ${G.H}" role="img" aria-label="${o.aria}">` + chrome(o, yS);
+
+  byYear.forEach((g, i) => {
+    const cx = cxOf(i), x0 = cx - groupW/2;
+    const vals = o.series.map(se => mean(se.pick(g).map(se.get)));
+    o.series.forEach((se, j) => {
+      const x = x0 + j*(BW+GAP), v = vals[j], key = `${o.key}${i}${j}`;
+      s += `<path class="mark" data-k="${key}" d="M${x},${yS(0)} L${x},${yS(v)+4} Q${x},${yS(v)} ${x+4},${yS(v)} L${x+BW-4},${yS(v)} Q${x+BW},${yS(v)} ${x+BW},${yS(v)+4} L${x+BW},${yS(0)} Z" fill="${se.col}"/>`;
+      const html = `<div class="t">${g.y} · ${se.lbl}</div>`
+        + `<div class="r"><span>${se.avg}</span><b>${o.fmt(v)}</b></div>`
+        + `<div class="ls"><div class="cap">${o.cap(se.pick(g).length)}</div>${listRows(o, se, g)}</div>`;
+      s += `<rect class="hit" data-k="${key}" data-vy="${yS(v)}" data-html='${esc(html)}' x="${x-1}" y="${G.T}" width="${BW+2}" height="${G.ph}"/>`;
+    });
+    // value labels: identical neighbours share one label, genuinely overlapping ones get nudged
+    const kept = [];
+    const halfW = t => t.length * FS * 0.58 / 2;
+    vals.forEach((v, j) => {
+      const L = { x: x0 + j*(BW+GAP) + BW/2, y: yS(v), t: o.fmt(v) };
+      const near = K => Math.abs(K.x - L.x) < halfW(K.t) + halfW(L.t) + 3;
+      if (kept.some(K => near(K) && K.t === L.t && Math.abs(K.y - L.y) < 5)) return;
+      let guard = 0;
+      while (kept.some(K => near(K) && Math.abs(K.y - L.y) < 12) && guard++ < 6) L.y -= 12;
+      kept.push(L);
+    });
+    kept.forEach(L => { s += `<text class="vlab" font-size="${FS}" x="${L.x}" y="${L.y-8}" text-anchor="middle">${L.t}</text>`; });
+    s += xAxis(g, cx, yS);
+  });
+  s += eraStrip(cxOf, G.band, yS(0) + 52, 9);
+  return s + '</svg>';
+}
+
+/* ---------------- view 2: lines ---------------- */
+function lineChart(o){
+  const yS = scaleY(o.yMax);
+  const vals = o.series.map(se => byYear.map(g => mean(se.pick(g).map(se.get))));
+  let s = `<svg viewBox="0 0 ${G.W} ${G.H}" role="img" aria-label="${o.aria}">` + chrome(o, yS);
+
+  o.series.forEach((se, j) => {
+    const d = vals[j].map((v, i) => `${i ? 'L' : 'M'}${cxOf(i)},${yS(v)}`).join(' ');
+    s += `<path d="${d}" fill="none" stroke="${se.col}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+  });
+  o.series.forEach((se, j) => vals[j].forEach((v, i) => {
+    s += `<circle cx="${cxOf(i)}" cy="${yS(v)}" r="4.5" fill="${se.col}" stroke="var(--surface)" stroke-width="2"/>`;
+  }));
+
+  // end labels, nudged apart so converging series stay readable
+  const last = YEARS.length - 1;
+  const ends = [];
+  o.series.map((se, j) => ({ y: yS(vals[j][last]), t: o.fmt(vals[j][last]) }))
+    .sort((a, b) => a.y - b.y)
+    .forEach(e => {
+      // series that land on the same value share one label instead of stacking duplicates
+      if (ends.some(k => k.t === e.t && Math.abs(k.y - e.y) < 13)) return;
+      const prev = ends[ends.length - 1];
+      if (prev && e.y - prev.y < 13) e.y = prev.y + 13;
+      ends.push(e);
+    });
+  ends.forEach(e => { s += `<text class="vlab" x="${cxOf(last)+11}" y="${e.y+3.5}" text-anchor="start">${e.t}</text>`; });
+
+  byYear.forEach((g, i) => {
+    const cx = cxOf(i), key = `${o.key}x${i}`;
+    const top = Math.min(...o.series.map((se, j) => yS(vals[j][i])));
+    s += `<line class="mark cross" data-k="${key}" x1="${cx}" x2="${cx}" y1="${G.T}" y2="${yS(0)}" stroke="var(--axis)" stroke-width="1"/>`;
+    const rows = o.series.map((se, j) =>
+      `<div class="r"><span><i class="k" style="background:${se.col}"></i>${se.short}</span><b>${o.fmt(vals[j][i])}</b></div>`).join('');
+    const items = [...g.all].sort((a,b) => o.series[0].get(b) - o.series[0].get(a)).map(d =>
+      `<div class="li"><span>${d.pwc ? '<i class="d"></i>' : ''}${d.s}</span><b>${o.lineRow(d)}</b></div>`).join('');
+    const html = `<div class="t">${g.y}</div>${rows}`
+      + `<div class="ls"><div class="cap">${o.cap(g.all.length)}</div>${items}</div>`;
+    s += `<rect class="hit" data-k="${key}" data-nodim="1" data-vy="${top}" data-html='${esc(html)}' x="${cx-G.band/2}" y="${G.T}" width="${G.band}" height="${G.ph}"/>`;
+    s += xAxis(g, cx, yS);
+  });
+  s += eraStrip(cxOf, G.band, yS(0) + 52, 9);
+  return s + '</svg>';
+}
+
+/* ---------------- chart configs ---------------- */
+const CHART_WPRS = {
+  key:'a', yMax:80, ticks:[0,20,40,60,80], unit:'WPRS',
+  aria:'Yıllara göre birincilerin ortalama WPRS puanı',
+  fmt:nf1, fmtRow:nf1, lineRow: d => nf1(d.p),
+  cap: n => `${n} yarışma birincisi`,
+  series:[
+    {lbl:'Tüm Cat 2 yarışmaları', short:'Tümü',      col:'var(--s1)', pick:g=>g.all, get:d=>d.p, avg:'ortalama puan'},
+    {lbl:'PWC etapları hariç',    short:'PWC hariç', col:'var(--s2)', pick:g=>g.nop, get:d=>d.p, avg:'ortalama puan'}
+  ]
+};
+
+const CHART_PILOTS = {
+  key:'c', yMax:130, ticks:[0,25,50,75,100,125], unit:'pilot',
+  aria:'Yıllara göre yarışma başına ortalama pilot ve kadın pilot sayısı',
+  fmt:nf1, fmtRow: v => String(v), lineRow: d => `${d.pl} · ${d.fw}K`,
+  cap: n => `${n} yarışmanın katılımı`,
+  series:[
+    {lbl:'Tüm Cat 2 yarışmaları', short:'Tümü',      col:'var(--s1)', pick:g=>g.all, get:d=>d.pl, avg:'ortalama pilot'},
+    {lbl:'PWC etapları hariç',    short:'PWC hariç', col:'var(--s2)', pick:g=>g.nop, get:d=>d.pl, avg:'ortalama pilot'},
+    {lbl:'Kadın pilot',           short:'Kadın',     col:'var(--s3)', pick:g=>g.all, get:d=>d.fw, avg:'ortalama kadın'}
+  ]
+};
+
+/* ---------------- chart B: dot strip ---------------- */
+function chartB(){
+  const W = 1120, H = 382, L = 52, R = 18, T = 22, B = 78;
+  const pw = W - L - R, ph = H - T - B;
+  const yMax = 100, ticks = [0,25,50,75,100];
+  const yS = v => T + ph - (v / yMax) * ph;
+  const band = pw / YEARS.length;
+
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Her yarışma birincisinin WPRS puanı, yıllara göre dağılım">`;
+  ticks.forEach(t => {
+    s += `<line class="gl" x1="${L}" x2="${L+pw}" y1="${yS(t)}" y2="${yS(t)}"/>`;
+    s += `<text class="tick" x="${L-10}" y="${yS(t)+3.5}" text-anchor="end">${t}</text>`;
+  });
+  s += `<line class="base" x1="${L}" x2="${L+pw}" y1="${yS(0)}" y2="${yS(0)}"/>`;
+
+  byYear.forEach((g, i) => {
+    const cx = L + band*i + band/2;
+    const mAll = mean(g.all.map(d => d.p));
+    s += `<line x1="${cx-34}" x2="${cx+34}" y1="${yS(mAll)}" y2="${yS(mAll)}" stroke="var(--axis)" stroke-width="2"/>`;
+    s += `<text class="vlab" x="${cx+40}" y="${yS(mAll)+3.5}" text-anchor="start">${nf1(mAll)}</text>`;
+    const sorted = [...g.all].sort((a,b)=>a.p-b.p);
+    sorted.forEach((d, j) => {
+      const off = (j - (sorted.length-1)/2) * 13;
+      const key = `b${i}${j}`;
+      if (d.pwc){
+        s += `<circle class="mark" data-k="${key}" cx="${cx+off}" cy="${yS(d.p)}" r="5.5" fill="var(--surface)" stroke="var(--s2)" stroke-width="2.5"/>`;
+      } else {
+        s += `<circle class="mark" data-k="${key}" cx="${cx+off}" cy="${yS(d.p)}" r="5" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"/>`;
+      }
+      const html = `<div class="t">${d.n}</div>`
+        + `<div class="r"><span>${d.w}</span><b>${d.c}</b></div>`
+        + `<div class="r"><span>WPRS</span><b>${nf1(d.p)}</b></div>`
+        + `<div class="r"><span>Ta · pilot · kadın</span><b>${nf3(d.ta)} · ${d.pl} · ${d.fw}</b></div>`;
+      s += `<circle class="hit" data-k="${key}" data-html='${esc(html)}' cx="${cx+off}" cy="${yS(d.p)}" r="13"/>`;
+    });
+    s += `<text class="xlab" x="${cx}" y="${yS(0)+24}" text-anchor="middle">${g.y}</text>`;
+  });
+  s += eraStrip(i => L + band*i + band/2, band, yS(0) + 38, 9);
+  s += `<text class="tick" x="${L-10}" y="${T-8}" text-anchor="end">WPRS</text>`;
+  return s + `</svg>`;
+}
+
+/* ---------------- year-level metrics ---------------- */
+const YSTAT = {
+  //          2017  2018  2019  2020  2021  2022  2023  2024  2025  2026
+  pilots:    [ 121,  195,  210,   67,  254,  168,  247,  251,  191,   95],
+  tur:       [  93,   51,  103,   63,  128,   93,   88,  134,  106,   78],
+  fresh:     [ 121,  149,  129,   19,  139,   70,  124,  120,   87,   28],
+  nations:   [  11,   38,   27,    5,   36,   19,   35,   29,   25,    2],
+  keep:      [36.6, 74.5, 37.9, 60.3, 43.8, 54.8, 51.1, 41.0, 41.5, null],
+  natRank:   [  24,   30,   28,   33,   33,   21,   36,   35,   36,   37],
+  natPts:    [653.7,586.1,639.9,537.3,664.6,755.4,598.4,624.6,645.9,671.9],
+  pilotRank: [ 129,  280,  198,  340,  287,  179,  383,  136,  288,  320],
+  pilotName: ['Dora Göksal','Dora Göksal','Serdar Tur','Serdar Tur','Serdar Tur',
+              'Orkut Baysal','Hüseyin Tanrıverdi','Yiğit Yıldırım','Durali Karaca','Adem Berk Aksoy'],
+  ccc:       [  19,  160,   69,   18,  122,   70,  131,  122,   94,   31],
+  end:       [  38,   49,   78,   20,   86,   61,   80,   67,   63,   21],
+  oth:       [  92,   22,  141,   29,  132,  152,  141,  151,   98,   76]
+};
+YSTAT.foreign = YSTAT.pilots.map((v,i) => v - YSTAT.tur[i]);
+// PWC etapları hariç, aynı sezon havuzu
+YSTAT.npNations = [ 11,  24,  27,   5,  11,  19,  21,   4,   4,   2];
+YSTAT.npPilots  = [121, 119, 210,  67, 164, 168, 164, 158, 127,  95];
+YSTAT.npForeign = [ 28,  70, 107,   4,  36,  75,  78,  27,  26,  17];
+YSTAT.npComps   = [  2,   1,   4,   1,   4,   5,   5,   3,   2,   3];
+YSTAT.npForeignPct = YSTAT.npPilots.map((v,i) => YSTAT.npForeign[i] / v * 100);
+YSTAT.foreignPct = YSTAT.pilots.map((v,i) => YSTAT.foreign[i] / v * 100);
+YSTAT.taMean = YEARS.map(y => { const g = DATA.filter(d => d.y === y); return mean(g.map(d => d.ta)); });
+YSTAT.tkMean = YEARS.map(y => { const g = DATA.filter(d => d.y === y); return mean(g.map(d => d.tk)); });
+
+const PWCA = {
+  2018: [['PWC etabı — Çameli','s1'], ['Pre-PWC — Çameli','s2']],
+  2019: [['Pre-Superfinal — Aksaray','s2']],
+  2021: [['PWC etabı — Aksaray','s1']],
+  2022: [['Pre-PWC — Çameli','s2']],
+  2023: [['PWC etabı — Aksaray','s1'], ['Pre-PWC — Çameli','s2']],
+  2024: [['PWC etabı — Çameli','s1']],
+  2025: [['PWC etabı — Aksaray','s1'], ['Pre-PWC — Alidağı','s2'], ['Pre-PWC — Karapınar','s2']]
+};
+
+/* ---------------- small multiples ---------------- */
+const M = { W:560, H:352, L:46, R:16, T:24, B:74 };
+M.pw = M.W - M.L - M.R;
+M.ph = M.H - M.T - M.B;
+M.band = M.pw / YEARS.length;
+const mcx = i => M.L + M.band*i + M.band/2;
+
+function mini(o){
+  const yMin = o.yMin || 0, span = o.yMax - yMin;
+  const yS = v => o.invert
+    ? M.T + ((v - yMin) / span) * M.ph
+    : M.T + M.ph - ((v - yMin) / span) * M.ph;
+  const base = M.T + M.ph;   // baseline always sits at the bottom edge
+  let s = `<svg viewBox="0 0 ${M.W} ${M.H}" role="img" aria-label="${o.aria}">`;
+  o.ticks.forEach(t => {
+    s += `<line class="gl" x1="${M.L}" x2="${M.L+M.pw}" y1="${yS(t)}" y2="${yS(t)}"/>`;
+    s += `<text class="tick" x="${M.L-8}" y="${yS(t)+3.5}" text-anchor="end">${t}</text>`;
+  });
+  s += `<line class="base" x1="${M.L}" x2="${M.L+M.pw}" y1="${base}" y2="${base}"/>`;
+  s += `<text class="tick" x="${M.L-8}" y="${M.T-9}" text-anchor="end">${o.unit}</text>`;
+
+  if (o.markYear !== undefined){
+    const i = YEARS.indexOf(o.markYear);
+    const x = mcx(i) - M.band/2;
+    s += `<line class="mark-rule" x1="${x}" x2="${x}" y1="${M.T-4}" y2="${M.T+M.ph}"/>`;
+    s += `<text class="mark-note" x="${x+5}" y="${M.T-8}" text-anchor="start">${o.markLabel}</text>`;
+  }
+
+  if (o.kind === 'bar'){
+    const n = o.series.length, GAP = 2;
+    const BW = Math.max(9, Math.min(20, Math.floor((M.band*0.74 - (n-1)*GAP) / n)));
+    const gw = n*BW + (n-1)*GAP;
+    YEARS.forEach((y, i) => {
+      const x0 = mcx(i) - gw/2;
+      o.series.forEach((se, j) => {
+        const v = se.vals[i]; if (v === null) return;
+        const x = x0 + j*(BW+GAP), key = `${o.key}${i}${j}`;
+        s += `<path class="mark" data-k="${key}" d="M${x},${yS(0)} L${x},${yS(v)+3} Q${x},${yS(v)} ${x+3},${yS(v)} L${x+BW-3},${yS(v)} Q${x+BW},${yS(v)} ${x+BW},${yS(v)+3} L${x+BW},${yS(0)} Z" fill="${se.col}"/>`;
+        s += `<rect class="hit" data-k="${key}" data-vy="${yS(v)}" data-html='${esc(o.tip(i))}' x="${x-1}" y="${M.T}" width="${BW+2}" height="${M.ph}"/>`;
+      });
+      if (o.labels !== false){
+        const top = Math.min(...o.series.map(se => se.vals[i] === null ? Infinity : yS(se.vals[i])));
+        const txt = o.series.map(se => se.vals[i] === null ? null : o.fmt(se.vals[i])).filter(Boolean).join(' · ');
+        s += `<text class="vlab" font-size="9.5" x="${mcx(i)}" y="${top-7}" text-anchor="middle">${txt}</text>`;
+      }
+    });
+  } else {
+    o.series.forEach(se => {
+      const pts = se.vals.map((v,i) => v === null ? null : [mcx(i), yS(v)]).filter(Boolean);
+      s += `<path d="${pts.map((q,k) => `${k?'L':'M'}${q[0]},${q[1]}`).join(' ')}" fill="none" stroke="${se.col}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+      pts.forEach(q => { s += `<circle cx="${q[0]}" cy="${q[1]}" r="4" fill="${se.col}" stroke="var(--surface)" stroke-width="2"/>`; });
+    });
+    YEARS.forEach((y, i) => {
+      const vals = o.series.map(se => se.vals[i]).filter(v => v !== null);
+      if (!vals.length) return;
+      const key = `${o.key}x${i}`;
+      const top = Math.min(...vals.map(yS));
+      s += `<line class="mark cross" data-k="${key}" x1="${mcx(i)}" x2="${mcx(i)}" y1="${M.T}" y2="${M.T+M.ph}" stroke="var(--axis)" stroke-width="1"/>`;
+      s += `<rect class="hit" data-k="${key}" data-nodim="1" data-vy="${top}" data-html='${esc(o.tip(i))}' x="${mcx(i)-M.band/2}" y="${M.T}" width="${M.band}" height="${M.ph}"/>`;
+      if (o.labels !== false && (i === 0 || i === YEARS.length-1 || o.labels === 'all')){
+        s += `<text class="vlab" font-size="9.5" x="${mcx(i)}" y="${top-8}" text-anchor="middle">${o.fmt(vals[0])}</text>`;
+      }
+    });
+  }
+  YEARS.forEach((y, i) => {
+    s += `<text class="xlab" font-size="10.5" x="${mcx(i)}" y="${M.T+M.ph+20}" text-anchor="middle">${String(y).slice(2)}</text>`;
+  });
+  s += eraStrip(mcx, M.band, M.T + M.ph + 32, 8);
+  return s + '</svg>';
+}
+
+/* ---------------- 100% stacked columns ---------------- */
+function stack(o){
+  const yS = v => G.T + G.ph - (v/100) * G.ph;
+  const BW = Math.min(34, Math.floor(G.band*0.5));
+  let s = `<svg viewBox="0 0 ${G.W} ${G.H}" role="img" aria-label="${o.aria}">`;
+  [0,25,50,75,100].forEach(t => {
+    s += `<line class="gl" x1="${G.L}" x2="${G.L+G.pw}" y1="${yS(t)}" y2="${yS(t)}"/>`;
+    s += `<text class="tick" x="${G.L-10}" y="${yS(t)+3.5}" text-anchor="end">${t}</text>`;
+  });
+  s += `<line class="base" x1="${G.L}" x2="${G.L+G.pw}" y1="${yS(0)}" y2="${yS(0)}"/>`;
+  s += `<text class="tick" x="${G.L-10}" y="${G.T-10}" text-anchor="end">%</text>`;
+  YEARS.forEach((y, i) => {
+    const cx = cxOf(i), x = cx - BW/2;
+    const raw = o.series.map(se => se.vals[i]);
+    const tot = raw.reduce((a,b) => a+b, 0);
+    let acc = 0;
+    o.series.forEach((se, j) => {
+      const pct = raw[j] / tot * 100;
+      const y0 = yS(acc), y1 = yS(acc + pct);
+      acc += pct;
+      const key = `s${i}${j}`;
+      s += `<rect class="mark" data-k="${key}" x="${x}" y="${y1}" width="${BW}" height="${Math.max(0, y0 - y1 - (j < o.series.length-1 ? 2 : 0))}" fill="${se.col}"/>`;
+      const rows = o.series.map((t2, k) => `<div class="r"><span><i class="k" style="background:${t2.col}"></i>${t2.lbl}</span><b>${(raw[k]/tot*100).toFixed(0)}% · ${raw[k]}</b></div>`).join('');
+      const html = `<div class="t">${y} · ${tot} kanat kaydı</div>${rows}`;
+      s += `<rect class="hit" data-k="${key}" data-vy="${y1}" data-html='${esc(html)}' x="${x}" y="${y1}" width="${BW}" height="${Math.max(6, y0 - y1)}"/>`;
+      if (pct >= 12){
+        s += `<text class="vlab" font-size="9.5" fill="${j === o.series.length-1 ? 'var(--ink-2)' : '#fff'}" x="${cx}" y="${(y0+y1)/2 + 3.5}" text-anchor="middle">${Math.round(pct)}</text>`;
+      }
+    });
+    s += `<text class="xlab" x="${cx}" y="${yS(0)+24}" text-anchor="middle">${y}</text>`;
+    s += `<text class="xsub" x="${cx}" y="${yS(0)+40}" text-anchor="middle">${tot} kanat</text>`;
+  });
+  s += eraStrip(cxOf, G.band, yS(0) + 52, 9);
+  return s + '</svg>';
+}
+
+function mountMini(id, svgHtml){
+  const el = document.getElementById(id);
+  el.insertAdjacentHTML('afterbegin', svgHtml);
+  attach(el, bindTip(el, el.querySelector('.tip')), '.hit');
+}
+
+/* ---------------- mount ---------------- */
+function mountChart(plotId, tipId, cfg){
+  const plot = document.getElementById(plotId);
+  const tip  = bindTip(plot, document.getElementById(tipId));
+  const draw = view => {
+    plot.querySelectorAll('svg').forEach(el => el.remove());
+    plot.insertAdjacentHTML('afterbegin', view === 'line' ? lineChart(cfg) : barChart(cfg));
+    attach(plot, tip, '.hit');
+    tip.hide();
+  };
+  draw('bar');
+  const seg = document.querySelector(`[data-seg="${plotId}"]`);
+  if (!seg) return;
+  seg.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    seg.querySelectorAll('button').forEach(b => {
+      const on = b === btn;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    draw(btn.dataset.view);
+  });
+}
+
+
+/* --- year-metric charts --- */
+const nComps = i => DATA.filter(d => d.y === YEARS[i]).length;
+const dot = c => `<i class="k" style="background:var(${c})"></i>`;
+
+mountMini('mA', mini({
+  key:'ma', kind:'bar', unit:'pilot', yMax:170, ticks:[0,40,80,120,160], labels:false,
+  aria:'Sezonda yarışan benzersiz pilot sayısı', markYear:2025, markLabel:'E.Ş. dönemi',
+  fmt: v => String(Math.round(v)),
+  series:[{lbl:'Türk', col:'var(--s1)', vals:YSTAT.tur},
+          {lbl:'Yabancı', col:'var(--s2)', vals:YSTAT.foreign}],
+  tip: i => `<div class="t">${YEARS[i]} · ${nComps(i)} yarışma</div>`
+    + `<div class="r"><span>${dot('--s1')}Türk pilot</span><b>${YSTAT.tur[i]}</b></div>`
+    + `<div class="r"><span>${dot('--s2')}Yabancı pilot</span><b>${YSTAT.foreign[i]}</b></div>`
+    + `<div class="r"><span>toplam</span><b>${YSTAT.pilots[i]}</b></div>`
+    + `<div class="r"><span>ilk kez görünen</span><b>${YSTAT.fresh[i]}</b></div>`
+}));
+
+mountMini('mB', mini({
+  key:'mb', kind:'line', unit:'%', yMax:80, ticks:[0,20,40,60,80], labels:'all',
+  aria:'Türk pilotların bir sonraki sezona kalma oranı', markYear:2025, markLabel:'E.Ş. dönemi',
+  fmt: v => nf1(v),
+  series:[{lbl:'Kalma oranı', col:'var(--s3)', vals:YSTAT.keep}],
+  tip: i => `<div class="t">${YEARS[i]} → ${YEARS[i]+1}</div>`
+    + (YSTAT.keep[i] === null
+       ? `<div class="r"><span>sonraki sezon</span><b>henüz yok</b></div>`
+       : `<div class="r"><span>kalma oranı</span><b>${nf1(YSTAT.keep[i])}%</b></div>`
+         + `<div class="r"><span>${YEARS[i]} Türk pilotu</span><b>${YSTAT.tur[i]}</b></div>`
+         + `<div class="r"><span>ertesi sezon uçan</span><b>${Math.round(YSTAT.tur[i]*YSTAT.keep[i]/100)}</b></div>`)
+}));
+
+mountMini('mC', mini({
+  key:'mc', kind:'line', unit:'sıra', yMin:15, yMax:40, ticks:[20,25,30,35,40], invert:true, labels:'all',
+  aria:'Türkiye uluslar sıralaması', fmt: v => String(Math.round(v)),
+  series:[{lbl:'Türkiye', col:'var(--s1)', vals:YSTAT.natRank}],
+  tip: i => `<div class="t">${YEARS[i]}</div>`
+    + `<div class="r"><span>uluslar sırası</span><b>${YSTAT.natRank[i]}.</b></div>`
+    + `<div class="r"><span>ülke puanı</span><b>${nf1(YSTAT.natPts[i])}</b></div>`
+}));
+
+mountMini('mD', mini({
+  key:'md', kind:'line', unit:'sıra', yMin:100, yMax:400, ticks:[100,200,300,400], invert:true, labels:'all',
+  aria:'En iyi Türk pilotun dünya sırası', fmt: v => String(Math.round(v)),
+  series:[{lbl:'En iyi Türk pilot', col:'var(--s2)', vals:YSTAT.pilotRank}],
+  tip: i => `<div class="t">${YEARS[i]} · ${YSTAT.pilotName[i]}</div>`
+    + `<div class="r"><span>dünya sırası</span><b>${YSTAT.pilotRank[i]}.</b></div>`
+}));
+
+mountMini('mE', mini({
+  key:'me', kind:'bar', unit:'ülke', yMax:45, ticks:[0,15,30,45], labels:true,
+  aria:'Kaç ülkeden pilot geldi, PWC etapları dahil ve hariç', fmt: v => String(Math.round(v)),
+  series:[{lbl:'Tümü', col:'var(--s1)', vals:YSTAT.nations},
+          {lbl:'PWC hariç', col:'var(--s2)', vals:YSTAT.npNations}],
+  tip: i => `<div class="t">${YEARS[i]}</div>`
+    + `<div class="r"><span>${dot('--s1')}Tüm yarışmalar</span><b>${YSTAT.nations[i]} ülke</b></div>`
+    + `<div class="r"><span>${dot('--s2')}PWC etapları hariç</span><b>${YSTAT.npNations[i]} ülke</b></div>`
+    + `<div class="r"><span>PWC dışı yarışma</span><b>${YSTAT.npComps[i]} / ${nComps(i)}</b></div>`
+}));
+
+mountMini('mF', mini({
+  key:'mf', kind:'line', unit:'%', yMax:85, ticks:[0,20,40,60,80], labels:false,
+  aria:'Yabancı pilot payı, PWC etapları dahil ve hariç', fmt: v => nf1(v),
+  series:[{lbl:'Tümü', col:'var(--s1)', vals:YSTAT.foreignPct},
+          {lbl:'PWC hariç', col:'var(--s2)', vals:YSTAT.npForeignPct}],
+  tip: i => `<div class="t">${YEARS[i]}</div>`
+    + `<div class="r"><span>${dot('--s1')}Tüm yarışmalar</span><b>${nf1(YSTAT.foreignPct[i])}%</b></div>`
+    + `<div class="r"><span>${dot('--s2')}PWC etapları hariç</span><b>${nf1(YSTAT.npForeignPct[i])}%</b></div>`
+    + `<div class="r"><span>yabancı / toplam</span><b>${YSTAT.foreign[i]} / ${YSTAT.pilots[i]}</b></div>`
+}));
+
+mountMini('mG', mini({
+  key:'mg', kind:'line', unit:'%', yMin:60, yMax:102, ticks:[60,70,80,90,100], labels:'all',
+  aria:'Ortalama görev geçerliliği', fmt: v => nf1(v),
+  series:[{lbl:'Ta', col:'var(--s1)', vals:YSTAT.taMean.map(v => v*100)}],
+  tip: i => `<div class="t">${YEARS[i]} · ${nComps(i)} yarışma</div>`
+    + `<div class="r"><span>ortalama Ta</span><b>${nf3(YSTAT.taMean[i])}</b></div>`
+    + `<div class="ls"><div class="cap">yarışma bazında</div>`
+    + DATA.filter(d => d.y === YEARS[i]).map(d => `<div class="li"><span>${d.s}</span><b>${nf3(d.ta)}</b></div>`).join('')
+    + `</div>`
+}));
+
+mountMini('mH', mini({
+  key:'mh', kind:'bar', unit:'görev', yMax:6, ticks:[0,2,4,6], labels:true,
+  aria:'Yarışma başına ortalama görev sayısı', fmt: v => nf1(v),
+  series:[{lbl:'Görev', col:'var(--s2)', vals:YSTAT.tkMean}],
+  tip: i => `<div class="t">${YEARS[i]} · ${nComps(i)} yarışma</div>`
+    + `<div class="r"><span>ortalama görev</span><b>${nf1(YSTAT.tkMean[i])}</b></div>`
+    + `<div class="ls"><div class="cap">yarışma bazında</div>`
+    + DATA.filter(d => d.y === YEARS[i]).map(d => `<div class="li"><span>${d.s}</span><b>${d.tk}</b></div>`).join('')
+    + `</div>`
+}));
+
+const pS = document.getElementById('plotS');
+pS.insertAdjacentHTML('afterbegin', stack({
+  aria:'Kanat sertifikasyon sınıfının yıllara göre dağılımı',
+  series:[{lbl:'CCC', col:'var(--s1)', vals:YSTAT.ccc},
+          {lbl:'EN-D', col:'var(--s2)', vals:YSTAT.end},
+          {lbl:'EN-C ve altı', col:'var(--axis)', vals:YSTAT.oth}]
+}));
+attach(pS, bindTip(pS, document.getElementById('tipS')), '.hit');
+
+document.getElementById('eraKey').innerHTML = ERAS.map((e,k) =>
+  `<div><span class="s"><i style="opacity:${k % 2 ? 0.5 : 1}"></i>${e.short}</span>`
+  + `<span class="n">${e.name}</span><span class="p">${e.period}</span>`
+  + `<span class="p">sezonlar: ${e.from === e.to ? e.from : e.from + '–' + e.to}</span></div>`).join('');
+
+document.getElementById('pwca').innerHTML = YEARS.map(y => {
+  const ev = PWCA[y];
+  return `<div><span class="y">${y}</span>` + (ev
+    ? ev.map(e => `<span class="ev"><i style="background:var(--${e[1]})"></i>${e[0]}</span>`).join('')
+    : `<span class="none">—</span>`) + `</div>`;
+}).join('');
+
+mountChart('plotA', 'tipA', CHART_WPRS);
+mountChart('plotC', 'tipC', CHART_PILOTS);
+
+const pB = document.getElementById('plotB');
+pB.insertAdjacentHTML('afterbegin', chartB());
+attach(pB, bindTip(pB, document.getElementById('tipB')), '.hit');
+
+const tb = document.querySelector('#tbl tbody');
+tb.innerHTML = DATA.map(d => `
+  <tr${d.w === 'Adem Berk Aksoy' ? ' class="me"' : ''}>
+    <td class="yr">${d.y}</td>
+    <td class="yr">${d.d}</td>
+    <td>${d.n}${d.pwc ? '<span class="tag">PWC</span>' : ''}</td>
+    <td class="win"><b>${d.w}</b> <span style="color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:11px">${d.c}</span></td>
+    <td class="num pts">${nf1(d.p)}</td>
+    <td class="num">${nf3(d.ta)}</td>
+    <td class="num">${d.pl}</td>
+    <td class="num">${d.fw}</td>
+    <td class="num">${d.tk}</td>
+  </tr>`).join('');
+</script>
+
+</body>
+</html>
